@@ -105,7 +105,7 @@ export default {
       // Webカメラの開始
       const constraints = {
         audio: false,
-        video: true,
+        video: { facingMode: 'environment' }, // アウトカメラを優先的に使う
       }
       video.value = context.refs.video
 

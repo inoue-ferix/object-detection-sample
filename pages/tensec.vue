@@ -92,13 +92,13 @@ export default {
         // 次フレーム
         setTimeout(() => {
           window.requestAnimationFrame(onFrame.bind(null, model, webcamElement))
-        }, 1000)
+        }, 10000)
       }
 
       // Webカメラの開始
       const constraints = {
         audio: false,
-        video: true,
+        video: { facingMode: 'environment' }, // アウトカメラを優先的に使う
       }
       video.value = context.refs.video
 
