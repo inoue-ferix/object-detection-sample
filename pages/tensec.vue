@@ -15,15 +15,6 @@ import * as cocoSsd from '@tensorflow-models/coco-ssd'
 
 export default {
   name: '',
-  head() {
-    // return {
-    //   script: [
-    //     {
-    //       src: 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs',
-    //     },
-    //   ],
-    // }
-  },
   setup(_props: {}, context: any) {
     const video = ref<HTMLVideoElement>(document.createElement('video'))
     const detectedObejct = ref<string[]>([])
