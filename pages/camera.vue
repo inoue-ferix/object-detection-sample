@@ -2,20 +2,10 @@
   <div class="container">
     <div>
       <h1 class="font-semibold text-3xl m-3 block">カメラテスト</h1>
-      <span
-        v-if="isCameraMode"
-        class="cursor-pointer font-semibold text-gray-600"
-        @click="toggleMode"
-      >
-        アップロードへ{{ count }}
+      <span class="cursor-pointer font-semibold text-gray-600">
+        {{ count }} 回撮影済み
       </span>
-      <span
-        v-else
-        class="cursor-pointer font-semibold text-gray-600"
-        @click="toggleMode"
-      >
-        カメラへ
-      </span>
+
       <div v-show="isCameraMode" class="mt-4 flex flex-col">
         <video
           id="video"
@@ -24,33 +14,8 @@
           height="500"
           autoplay
         ></video>
-        <button
-          id="snap"
-          class="transition duration-700 focus:outline-none hover:bg-blue-200 px-5 py-3 font-semibold bg-blue-500 text-white my-3 rounded"
-          @click="capture()"
-        >
-          {{ snapShotMessage }}
-        </button>
-        <button
-          v-show="captures.length > 0"
-          id="snap"
-          class="transition duration-700 focus:outline-none hover:bg-blue-200 px-5 py-3 font-semibold bg-blue-500 text-white my-3 rounded"
-          @click="send()"
-        >
-          送信する
-        </button>
       </div>
-      <div v-show="!isCameraMode" class="mt-4 flex flex-col">
-        <FileUploader @onImagePushed="onImagePushed" />
-        <button
-          v-show="isUploaded"
-          id="snap"
-          class="transition duration-700 focus:outline-none hover:bg-blue-200 px-5 py-3 font-semibold bg-blue-500 text-white my-3 rounded"
-          @click="send()"
-        >
-          送信する
-        </button>
-      </div>
+
       <span class="inline-block">
         {{ message }}
       </span>
@@ -60,7 +25,7 @@
           class="block text-gray-500 font-bold text-left mb-1 md:mb-0 pr-4"
           for="upload"
         >
-          送信する画像
+          撮影された画像
         </label>
         <img id="upload" :src="captures[0]" />
       </div>
