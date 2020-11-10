@@ -80,7 +80,7 @@ export default {
         detectedObejct.value = []
         // 画像分類
         const tensor = tf.browser.fromPixels(webcamElement)
-        const predictions = await model.detect(tensor)
+        // const predictions = await model.detect(tensor)
 
         // キャンバスの準備
         const canvas = context.refs.canvas
@@ -91,10 +91,10 @@ export default {
         // キャンバスの描画
         const ctx = canvas.getContext('2d')
         await renderToCanvas(ctx, tensor)
-        for (let i = 0; i < predictions.length; i++) {
-          drawBBox(ctx, predictions[i].bbox, predictions[i].class)
-          detectedObejct.value.push(predictions[i].class)
-        }
+        // for (let i = 0; i < predictions.length; i++) {
+        //   drawBBox(ctx, predictions[i].bbox, predictions[i].class)
+        //   detectedObejct.value.push(predictions[i].class)
+        // }
 
         // 次フレーム
         timeoutId = setTimeout(() => {
